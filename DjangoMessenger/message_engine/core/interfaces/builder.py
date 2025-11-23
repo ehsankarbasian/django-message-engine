@@ -12,5 +12,5 @@ class BuilderInterface(ABC):
     
     @staticmethod
     @abstractmethod
-    def get_payload(context):
+    def get_payload_list(context):
         pass

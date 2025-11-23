@@ -13,6 +13,10 @@ class CmdPrinterSender(SenderInterface):
         print(f'text    : {text}')
         print(f'payload : {payload}')
         print()
+        print(f'payload details :')
+        for p in payload:
+            print(f'object ({p.__class__.__name__}) : {p.__dict__}')
+        print()
         print(50 * '#')
         print()
         print()

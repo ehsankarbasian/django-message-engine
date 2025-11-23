@@ -7,7 +7,7 @@ class MessageFacade:
     
     def send_verify_message(user, context):
         text = VerifyBuilder.get_text(context)
-        payload = VerifyBuilder.get_payload(context)
+        payload = VerifyBuilder.get_payload_list(context)
         
         sender = MessageFactory._get_sender(user)
         
