@@ -1,9 +1,11 @@
-from abc import ABC
+from abc import ABC, abstractmethod
 
 from message_engine.core.interfaces.payload import PayloadItemInterface
 
 
 class SenderInterface(ABC):
     
-    def send():
+    @staticmethod
+    @abstractmethod
+    def send(text, payload):
         pass

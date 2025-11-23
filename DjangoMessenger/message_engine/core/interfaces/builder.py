@@ -1,7 +1,16 @@
-from abc import ABC
+from abc import ABC, abstractmethod
 
 from message_engine.core.interfaces.payload import PayloadItemInterface
 
 
 class BuilderInterface(ABC):
-    pass
+    
+    @staticmethod
+    @abstractmethod
+    def get_text(context):
+        pass
+    
+    @staticmethod
+    @abstractmethod
+    def get_payload(context):
+        pass
