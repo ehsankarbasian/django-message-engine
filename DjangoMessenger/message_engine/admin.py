@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import MessageEndpoint
 
-# Register your models here.
+
+admin.site.register(MessageEndpoint)
