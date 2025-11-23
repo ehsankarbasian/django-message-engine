@@ -1,0 +1,11 @@
+Django>5.2,<5.3
+# djangorestframework>3.16,<3.17
+# django_extensions==4.1
+
+# smsir-python
+# requests
+# dotenv
+
+
+# Develop mode:
+# django-debug-toolbar
