@@ -1,7 +1,7 @@
 from django.shortcuts import HttpResponse
 from django.views.generic.base import View
 
-from message_engine.service.message_facade import MessageFacade
+from message_engine.message_facade import MessageFacade
 
 
 class SendMessageView(View):

@@ -1,4 +1,4 @@
-from permission_interface import PermissionInterface as _PermissionInterface
+from message_engine.core.interfaces.permission import PermissionInterface as _PermissionInterface
 
 
 class AllowAny(_PermissionInterface):
