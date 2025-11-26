@@ -1,7 +1,7 @@
 from message_engine.core.interfaces.payload import PayloadItemInterface
 
 
-class Button(PayloadItemInterface):
+class SimpleButton(PayloadItemInterface):
     
     def __init__(self, text, target):
         self.text = text

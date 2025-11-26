@@ -1,6 +1,6 @@
 from message_engine.core.interfaces.builder import BuilderInterface
 
-from message_engine.concrete.payloads.button import Button
+from DjangoMessenger.message_engine.concrete.payloads.simple_button import Button
 
 
 class VerifyBuilder(BuilderInterface):
