@@ -10,18 +10,15 @@ class BaseRegistry:
     
     @classmethod
     def register(cls, name: str, item_class: ItemClass):
-        name = name.strip().lower()
         if name not in cls._REGISTRY:
             cls._REGISTRY[name] = item_class
     
     @classmethod
     def get(cls, name: str):
-        name = name.strip().lower()
         return cls._REGISTRY.get(name, None)
     
     @classmethod
     def exists(cls, name: str) -> bool:
-        name = name.strip().lower()
         return name in cls._REGISTRY
     
     @classmethod
@@ -33,5 +30,5 @@ class BaseRegistry:
         return list(cls._REGISTRY.values())
     
     @classmethod
-    def clear(cls):
+    def _clear(cls):
         cls._REGISTRY.clear()

@@ -11,10 +11,11 @@ from ..registry.concrete_registry import SenderRegistry
 
 
 class SenderInterface(ABC, metaclass=AutoRegisterMeta):
+    
     _ABSTRACT = True
     _REGISTRY = SenderRegistry
     
     @staticmethod
     @abstractmethod
-    def send(text: str, payload: PayloadItemInterface):
+    def send(text: str, payload: PayloadItemInterface, identifier: str):
         pass

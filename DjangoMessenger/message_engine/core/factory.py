@@ -1,3 +1,5 @@
+from typing import Tuple
+
 from message_engine.core.interfaces.sender import SenderInterface
 from message_engine.core.interfaces.builder import BuilderInterface
 
@@ -9,9 +11,22 @@ from message_engine.core.registry.concrete_registry import PayloadRegistry, Perm
 
 class MessageFactory:
     
-    def create(user, context, builder):
+    @classmethod
+    def create(cls, user, context, builder):
         pass
     
-    def _get_sender(user):
-        # TODO: Read from the DataBase and Registry
-        return SenderRegistry.get('CmdPrinterSender')
+    @staticmethod
+    def _get_sender(user) -> Tuple[SenderInterface, str]:
+        
+        endpoint = (
+            MessageEndpoint.objects
+                .filter(user=user, is_active=True)
+                .order_by("priority")
+                .first()
+        )
+        
+        identifier = endpoint.identifier
+        sender = SenderRegistry.get(endpoint.endpoint_type)
+        
+        # TODO: Refactor identifier DataFlow
+        return sender, identifier

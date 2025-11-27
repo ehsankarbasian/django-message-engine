@@ -7,6 +7,7 @@ from ..registry.concrete_registry import PermissionRegistry
 
 
 class PermissionInterface(ABC, metaclass=AutoRegisterMeta):
+    
     _ABSTRACT = True
     _REGISTRY = PermissionRegistry
     

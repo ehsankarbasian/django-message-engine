@@ -1,16 +1,17 @@
-from message_engine.core.interfaces.sender import SenderInterface
+from message_engine.core.interfaces import SenderInterface
 
 
 class CmdPrinterSender(SenderInterface):
+    
     _ABSTRACT = False
     
     @staticmethod
-    def send(text, payload):
+    def send(text, payload, identifier):
         print()
         print()
         print(50 * '#')
         print()
-        print('Sending message ...')
+        print(f'Sending message to "{identifier}"')
         print(f'text    : {text}')
         print(f'payload : {payload}')
         print()

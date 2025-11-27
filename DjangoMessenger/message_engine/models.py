@@ -37,4 +37,4 @@ class MessageEndpoint(models.Model):
         ordering = ["priority", "-verified", "-is_active", "endpoint_type"]
 
     def __str__(self):
-        return f"{self.user} | {self.type}: {self.identifier}"
+        return f"{self.user} | {self.endpoint_type}: {self.identifier}"
