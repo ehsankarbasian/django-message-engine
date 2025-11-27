@@ -4,12 +4,23 @@ from django.views.generic.base import View
 from message_engine.message_facade import MessageFacade
 
 
-class SendMessageView(View):
+class SendVerifyMessageView(View):
     
     def get(self, request):
         
         if not request.user.is_anonymous:
             MessageFacade.send_verify_message(user=request.user, context=None)
             return HttpResponse('OK')
+
+        return HttpResponse('request.user is Ananymous')
+
+
+class SendWelcomeMessageView(View):
+    
+    def get(self, request):
+        
+        if not request.user.is_anonymous:
+            MessageFacade.senf_welcome_message(user=request.user, context=None)
+            return HttpResponse('Welcome send')
 
         return HttpResponse('request.user is Ananymous')
