@@ -2,6 +2,7 @@ from message_engine.core.interfaces.sender import SenderInterface
 
 
 class CmdPrinterSender(SenderInterface):
+    _ABSTRACT = False
     
     @staticmethod
     def send(text, payload):

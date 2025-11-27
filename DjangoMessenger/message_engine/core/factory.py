@@ -4,6 +4,7 @@ from message_engine.core.interfaces.builder import BuilderInterface
 from message_engine.message_engine_concrete.senders.cmd_printer import CmdPrinterSender
 
 from message_engine.models import *
+from message_engine.core.registry.concrete_registry import PayloadRegistry, PermissionRegistry, SenderRegistry
 
 
 class MessageFactory:
@@ -12,5 +13,5 @@ class MessageFactory:
         pass
     
     def _get_sender(user):
-        # TODO: Read from the DataBase
-        return CmdPrinterSender
+        # TODO: Read from the DataBase and Registry
+        return SenderRegistry.get('CmdPrinterSender')

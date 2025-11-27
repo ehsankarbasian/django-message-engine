@@ -6,4 +6,4 @@ from ..registry.concrete_registry import PayloadRegistry
 
 class PayloadItemInterface(ABC, metaclass=AutoRegisterMeta):
     _ABSTRACT = True
-    registry = PayloadRegistry
+    _REGISTRY = PayloadRegistry

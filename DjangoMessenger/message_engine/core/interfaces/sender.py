@@ -12,7 +12,7 @@ from ..registry.concrete_registry import SenderRegistry
 
 class SenderInterface(ABC, metaclass=AutoRegisterMeta):
     _ABSTRACT = True
-    registry = SenderRegistry
+    _REGISTRY = SenderRegistry
     
     @staticmethod
     @abstractmethod

@@ -8,7 +8,7 @@ from ..registry.concrete_registry import PermissionRegistry
 
 class PermissionInterface(ABC, metaclass=AutoRegisterMeta):
     _ABSTRACT = True
-    registry = PermissionRegistry
+    _REGISTRY = PermissionRegistry
     
     @staticmethod
     @abstractmethod
