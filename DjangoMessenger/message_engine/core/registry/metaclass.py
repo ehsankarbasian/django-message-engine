@@ -1,9 +1,13 @@
+from __future__ import annotations
+
+from abc import ABCMeta
+
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .base_registry import BaseRegistry
 
 
-class AutoRegisterMeta(type):
+class AutoRegisterMeta(ABCMeta):
     # Must be verridden in each interface
     registry: BaseRegistry = None
     _ABSTRACT: bool

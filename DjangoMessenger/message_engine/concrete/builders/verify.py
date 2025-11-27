@@ -1,6 +1,6 @@
 from message_engine.core.interfaces.builder import BuilderInterface
 
-from DjangoMessenger.message_engine.concrete.payloads.simple_button import Button
+from message_engine.concrete.payloads.simple_button import SimpleButton
 
 
 class VerifyBuilder(BuilderInterface):
@@ -11,5 +11,5 @@ class VerifyBuilder(BuilderInterface):
     
     @staticmethod
     def get_payload_list(context):
-        submit_button = Button(text="Verify", target=None)
+        submit_button = SimpleButton(text="Verify", target=None)
         return [submit_button]
