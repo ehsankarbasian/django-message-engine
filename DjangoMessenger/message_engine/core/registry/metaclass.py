@@ -10,7 +10,7 @@ class AutoRegisterMeta(ABCMeta):
         cls = super().__new__(mcls, name, bases, attrs)
 
         if not attrs.get("_ABSTRACT", False):
-            if cls._REGISTRY:
+            if hasattr(cls, '_REGISTRY'):
                 cls._REGISTRY.register(name, cls)
 
         return cls
