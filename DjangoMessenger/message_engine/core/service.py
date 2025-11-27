@@ -3,8 +3,8 @@ from typing import Tuple
 from message_engine.core.interfaces.sender import SenderInterface
 from message_engine.core.interfaces.builder import BuilderInterface
 
-from message_engine.models import *
-from message_engine.core.registry.concrete_registry import PayloadRegistry, PermissionRegistry, SenderRegistry
+from message_engine.models import MessageEndpoint
+from message_engine.core.registry.concrete_registry import SenderRegistry
 
 
 class MessageService:

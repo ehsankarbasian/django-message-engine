@@ -1,4 +1,4 @@
-from message_engine.core.interfaces.permission import PermissionInterface
+from message_engine.core.interfaces import PermissionInterface
 
 from message_engine.models import MessageEndpoint
 
