@@ -1,5 +1,9 @@
 from abc import ABC
 
+from ..registry.metaclass import AutoRegisterMeta
+from ..registry.concrete_registry import PayloadRegistry
 
-class PayloadItemInterface(ABC):
-    pass
+
+class PayloadItemInterface(ABC, metaclass=AutoRegisterMeta):
+    _ABSTRACT = True
+    registry = PayloadRegistry

@@ -1,9 +1,16 @@
-from abc import ABC
+from abc import ABC, abstractmethod
 
-from models import *
+# from models import *
+
+from ..registry.metaclass import AutoRegisterMeta
+from ..registry.concrete_registry import PermissionRegistry
 
 
-class PermissionInterface(ABC):
+class PermissionInterface(ABC, metaclass=AutoRegisterMeta):
+    _ABSTRACT = True
+    registry = PermissionRegistry
     
-    def has_permission(user):
+    @staticmethod
+    @abstractmethod
+    def has_permission(user) -> bool:
         pass
