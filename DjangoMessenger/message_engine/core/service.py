@@ -7,11 +7,26 @@ from message_engine.models import *
 from message_engine.core.registry.concrete_registry import PayloadRegistry, PermissionRegistry, SenderRegistry
 
 
-class MessageFactory:
+class MessageService:
     
-    @classmethod
-    def create(cls, user, context, builder):
-        pass
+    @staticmethod
+    def send(user, context, builder_class: BuilderInterface):
+        
+        # Permission check
+        for permission in getattr(builder_class, "permissions", []):
+            if not permission.has_permission(user):
+                raise PermissionError(f"Not allowed for {builder_class.__name__}")
+
+        # Build text and payload
+        text = builder_class.get_text(context)
+        payload = builder_class.get_payload_list(context)
+
+        # Pick sender and identifier from DB and registry
+        sender, identifier = MessageService._get_sender(user)
+
+        # Send
+        sender.send(text, payload, identifier)
+
     
     @staticmethod
     def _get_sender(user) -> Tuple[SenderInterface, str]:
