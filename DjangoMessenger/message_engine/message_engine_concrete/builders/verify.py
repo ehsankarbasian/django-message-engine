@@ -1,9 +1,12 @@
 from message_engine.core.interfaces.builder import BuilderInterface
 
-from message_engine.message_engine_concrete.payloads.simple_button import SimpleButton
+from message_engine.message_engine_concrete.payloads import SimpleButton
+from message_engine.message_engine_concrete.permissions import NotVerified
 
 
 class VerifyBuilder(BuilderInterface):
+    
+    permissions = (NotVerified, )
     
     @staticmethod
     def get_text(context):

@@ -3,8 +3,6 @@ from typing import Tuple
 from message_engine.core.interfaces.sender import SenderInterface
 from message_engine.core.interfaces.builder import BuilderInterface
 
-from message_engine.message_engine_concrete.senders.cmd_printer import CmdPrinterSender
-
 from message_engine.models import *
 from message_engine.core.registry.concrete_registry import PayloadRegistry, PermissionRegistry, SenderRegistry
 

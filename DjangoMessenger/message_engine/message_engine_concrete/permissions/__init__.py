@@ -1,29 +1,39 @@
-from message_engine.core.interfaces.permission import PermissionInterface as _PermissionInterface
+from message_engine.core.interfaces.permission import PermissionInterface
+
+from message_engine.models import MessageEndpoint
 
 
-class AllowAny(_PermissionInterface):
+class AllowAny(PermissionInterface):
+    _ABSTRACT = False
 
     @staticmethod
     def has_permission(user):
         return True
 
 
-class AllowNobody(_PermissionInterface):
+class AllowNobody(PermissionInterface):
+    _ABSTRACT = False
 
     @staticmethod
     def has_permission(user):
         return False
 
 
-class Verified(_PermissionInterface):
+class Verified(PermissionInterface):
+    _ABSTRACT = False
 
     @staticmethod
     def has_permission(user):
-        return
+        return MessageEndpoint.objects.filter(
+            user=user,
+            verified=True,
+            is_active=True,
+        ).exists()
 
 
-class NotVerified(_PermissionInterface):
+class NotVerified(PermissionInterface):
+    _ABSTRACT = False
 
     @staticmethod
     def has_permission(user):
-        return
+        return not Verified.has_permission(user)

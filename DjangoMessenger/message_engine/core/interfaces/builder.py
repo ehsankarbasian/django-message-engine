@@ -1,11 +1,13 @@
-from typing import List
+from typing import List, Tuple
 from abc import ABC, abstractmethod
 
-from message_engine.core.interfaces import AbstractPayloadItem
+from message_engine.core.interfaces import AbstractPayloadItem, PermissionInterface
 # from ..registry.concrete_registry import 
 
 
 class BuilderInterface(ABC):
+    
+    permissions: Tuple [PermissionInterface] = ()
     
     @staticmethod
     @abstractmethod
