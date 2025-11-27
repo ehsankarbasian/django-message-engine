@@ -1,6 +1,6 @@
 from message_engine.core.factory import MessageFactory
 
-from message_engine.concrete.builders.verify import VerifyBuilder
+from message_engine.message_engine_concrete.builders.verify import VerifyBuilder
 
 
 class MessageFacade:
