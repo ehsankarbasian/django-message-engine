@@ -1,6 +1,4 @@
-from .sender import SenderRegistry
-from .permission import PermissionRegistry
-from .payload import PayloadRegistry
+from .concrete_registry import SenderRegistry, PermissionRegistry, PayloadRegistry
 
 from ..interfaces.sender import SenderInterface
 from ..interfaces.permission import PermissionInterface

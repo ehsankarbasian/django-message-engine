@@ -1,5 +1,4 @@
 from typing import List, TypeVar, Dict
-from abc import ABC, abstractmethod
 
 
 ItemClass = TypeVar('item_class')
