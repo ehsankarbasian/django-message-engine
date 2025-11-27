@@ -1,7 +1,7 @@
-from message_engine.core.interfaces.payload import PayloadItemInterface
+from message_engine.core.interfaces import AbstractPayloadItem
 
 
-class SimpleButton(PayloadItemInterface):
+class SimpleButton(AbstractPayloadItem):
     
     def __init__(self, text, target):
         self.text = text

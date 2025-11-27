@@ -1,10 +1,10 @@
 from typing import List
 
-from message_engine.core.interfaces.payload import PayloadItemInterface
+from message_engine.core.interfaces import AbstractPayloadItem
 from .items import FormItemInterface
 
 
-class BaseForm(PayloadItemInterface):
+class BaseForm(AbstractPayloadItem):
     
     def __init__(self):
         self._items: List[FormItemInterface] = []
